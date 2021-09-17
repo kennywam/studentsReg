@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Reg | SignUp</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body>
+	<b><h1>Maseno University</h1></b>
+	<i><h4>The versity at the equator...</h4></i>
+	<h3>Please enter your details for registration</h3>
+	<form action="Server.php" method="POST" enctype="multipart/form-data" >
+		first Name:<input type="text" name="fname" placeholder="eg. Kelvin" id="fname"><br><br>
+		last Name:<input type="text" name="lname" placeholder="eg. Kamau" id="lname"> <br><br>
+    <label class="custom-file-label" for="profilePhotoFile">Upload profile picture</label>
+    <input type="file" class="custom-file-input" name="photo" required > <br>               
+		RegNum:<input type="text" name="reg" placeholder="eg. CCS/00007/019" id="reg"><br><br>   
+    Course:<input type="text" name="Course" placeholder="eg. Computer Science" id="Course"><br><br>
+		Password:<input type="Password" name="pass" placeholder="new Password" id="pass"><br><br>
+		Confirm:<input type="Password" name="cpass" placeholder="Confirm Password" id="cpass"><br><br>
+		<button class="btn btn-primary" type="submit">Sign up</button>
+		<a href="login.html" type="button" class="btn btn-success">Login</a>
+
+	</form>
+ 
+    <script>     
+      //  JavaScript for disabling form submissions if there are invalid fields
+      (function() {
+        'use strict';
+          window.addEventListener('load', function() {
+            $('input[type="file"]').change(function(e){
+                  var fileName = e.target.files[0].name;
+                $('.custom-file-label').html(fileName);
+              }
+            );
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+      })();
+      </script>
+    <script src="js/sweetalert.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+</html>
